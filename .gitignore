@@ -1,0 +1,22 @@
+# Ignore IDE folders
+.vscode/
+.history/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore logs
+*.log
+logs/
+npm-debug.log*
+
+# Ignore backups/temp
+*.bak
+*.tmp
+*.swp
+*.swo
+
+# Ignore coverage and test folders (if run from root)
+coverage/
+__tests__/

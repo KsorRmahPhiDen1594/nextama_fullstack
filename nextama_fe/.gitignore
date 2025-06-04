@@ -1,0 +1,41 @@
+# Node modules
+node_modules/
+.vite/
+.next/
+
+# Builds
+dist/
+build/
+out/
+.cache/
+
+# Env
+.env
+.env.*.local
+
+# Logs
+*.log
+
+# Tests
+coverage/
+*.test.js
+*.spec.js
+__tests__/
+
+# System
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.history/
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Auth/session (NextAuth)
+.next-auth/
+
+# Supabase (nếu dùng)
+.supabase/
