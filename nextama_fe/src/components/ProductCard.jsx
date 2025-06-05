@@ -3,36 +3,17 @@ import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Star, Heart, ShoppingCart } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useShoppingCart } from '@/contexts/ShoppingCartContext';
-import { useWishlist } from '@/contexts/WishlistContext';
 
 const ProductCard = ({ product }) => {
-  const { addToCart } = useShoppingCart();
-  const { toggleWishlist, isInWishlist } = useWishlist();
-  const isWishlisted = isInWishlist(product?.id);
   const [loading, setLoading] = React.useState(false);
 
   const handleAddToCart = (e) => {
     e.preventDefault();
     e.stopPropagation();
     setLoading(true);
-    addToCart(product);
-    setLoading(false);
+    setTimeout(() => setLoading(false), 1000);
   };
-
-  const handleToggleWishlist = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setLoading(true);
-    toggleWishlist(product);
-    setLoading(false);
-  };
-  
-  const actualPrice = product?.price ? parseFloat(String(product.price).replace(/[.₫]/g, '')) : 0;
-  const discountPrice = product?.originalPrice ? parseFloat(String(product.originalPrice).replace(/[.₫]/g, '')) : actualPrice;
-  const discountPercentage = product?.originalPrice ? Math.round(((discountPrice - actualPrice) / discountPrice) * 100) : 0;
 
   if (!product) {
     return <div>Không có dữ liệu sản phẩm</div>;
@@ -51,54 +32,60 @@ const ProductCard = ({ product }) => {
         <Link to={`/product/${product.id}`} className="block">
           <CardContent className="p-0 flex flex-col flex-grow">
             <div className="relative">
-              <img  
-                className="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-300" 
+              <img
+                className="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
                 alt={product.alt || product.name || 'Sản phẩm'}
                 src={product.image || 'https://images.unsplash.com/photo-1674027392838-d85710a5121d'}
               />
-              {discountPercentage > 0 && (
-                <Badge variant="destructive" className="absolute top-2 right-2 text-xs">
-                  -{discountPercentage}%
+              {product.discountPercentage > 0 && (
+                <Badge variant="destructive" className="absolute top-2 right-2 text-xs bg-blue-500">
+                  -{product.discountPercentage}%
                 </Badge>
               )}
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className={`absolute top-2 left-2 h-8 w-8 rounded-full bg-white/70 dark:bg-black/50 hover:bg-white dark:hover:bg-black ${isWishlisted ? 'text-red-500' : 'text-muted-foreground hover:text-red-400'}`}
-                onClick={handleToggleWishlist}
-                disabled={loading}
-              >
-                <Heart className={`h-4 w-4 ${isWishlisted ? 'fill-current' : ''}`} />
-              </Button>
+              {product.tags && (
+                <div className="absolute top-2 left-2 flex space-x-1">
+                  {product.tags.map((tag, idx) => (
+                    <Badge key={idx} className={`text-xs ${tag === 'NEW' ? 'bg-green-500' : 'bg-yellow-500'}`}>
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+              )}
             </div>
             <div className="p-3 md:p-4 space-y-1.5 flex flex-col flex-grow">
               <h3 className="font-semibold text-sm md:text-md line-clamp-2 group-hover:text-primary transition-colors h-10 md:h-12">
                 {product.name || 'Tên sản phẩm'}
               </h3>
+              {product.description && (
+                <p className="text-gray-600 text-xs md:text-sm">{product.description}</p>
+              )}
               <div className="flex items-baseline space-x-2">
                 <p className="text-primary font-bold text-md md:text-lg">{product.price || 'N/A'}</p>
                 {product.originalPrice && (
                   <p className="text-xs md:text-sm text-muted-foreground line-through">{product.originalPrice}</p>
                 )}
               </div>
-              {product.rating && (
-                <div className="flex items-center text-xs text-muted-foreground">
-                  <Star className="h-3.5 w-3.5 text-yellow-400 fill-current mr-1" />
-                  <span>{product.rating}</span>
-                  <span className="mx-1">|</span>
-                  <span>Đã bán {product.soldCount || 0}</span>
+              {product.sold !== undefined && product.total !== undefined && (
+                <div className="flex items-center space-x-2">
+                  <img src="/assets/fire-2.gif" alt="fire" className="h-5 w-5" />
+                  <div className="w-full bg-gray-200 rounded-full h-2.5">
+                    <div
+                      className="bg-gradient-to-r from-orange-500 to-red-600 h-2.5 rounded-full"
+                      style={{ width: `${(product.sold / product.total) * 100}%` }}
+                    ></div>
+                  </div>
+                  <span className="text-xs text-gray-600">{`${product.sold}/${product.total}`}</span>
                 </div>
               )}
-              <div className="text-xs text-muted-foreground">{product.location || "Toàn quốc"}</div>
               <div className="mt-auto pt-2">
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  className="w-full border-primary/70 text-primary hover:bg-primary/10 hover:text-primary dark:border-primary/50 dark:hover:bg-primary/20"
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="w-full bg-blue-600 text-white hover:bg-blue-700 hover:text-white border-none"
                   onClick={handleAddToCart}
                   disabled={loading}
                 >
-                  <ShoppingCart className="mr-2 h-4 w-4" /> {loading ? 'Đang xử lý...' : 'Thêm vào giỏ'}
+                  {loading ? 'Đang xử lý...' : 'Thêm vào Giỏ Hàng'}
                 </Button>
               </div>
             </div>

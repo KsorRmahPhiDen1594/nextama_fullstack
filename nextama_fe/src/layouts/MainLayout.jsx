@@ -16,6 +16,31 @@ import {
   FileText as FileTextIcon,
   Briefcase,
   Building2,
+  Video,
+  PenTool,
+  Monitor,
+  Music,
+  Image,
+  Cpu,
+  Zap,
+  ChevronDown,
+  Grid3X3,
+  Gamepad2,
+  Code,
+  Camera,
+  BookOpen,
+  Shield,
+  Smartphone,
+  Cloud,
+  Database,
+  Palette,
+  Headphones,
+  Globe,
+  Mail,
+  Calendar,
+  FileText,
+  Settings,
+  Zap as Lightning,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -76,6 +101,58 @@ const MainLayout = () => {
   const [searchTerm, setSearchTerm] = React.useState('');
   const [loading, setLoading] = React.useState(false);
 
+  // Danh sách các danh mục được sắp xếp theo nhóm
+  const categoryGroups = [
+    {
+      title: "Streaming & Media",
+      categories: [
+        { name: 'Netflix', path: 'Netflix', icon: Video },
+        { name: 'Spotify', path: 'Spotify', icon: Music },
+        { name: 'Figma', path: 'Figma', icon: Palette }
+      ]
+    },
+    {
+      title: "Design & Creative",
+      categories: [
+        { name: 'Adobe', path: 'Adobe', icon: PenTool },
+        { name: 'Canva', path: 'Canva', icon: Image },
+        { name: 'Figma', path: 'Figma', icon: Palette }
+      ]
+    },
+    {
+      title: "Productivity",
+      categories: [
+        { name: 'Microsoft', path: 'Microsoft', icon: Monitor },
+        { name: 'Google Workspace', path: 'Google', icon: Search },
+        { name: 'Notion', path: 'Notion', icon: BookOpen }
+      ]
+    },
+    {
+      title: "Development",
+      categories: [
+        { name: 'GitHub', path: 'GitHub', icon: Code },
+        { name: 'GitLab', path: 'GitLab', icon: Code },
+        { name: 'AWS', path: 'AWS', icon: Cloud }
+      ]
+    },
+    {
+      title: "AI & Tools",
+      categories: [
+        { name: 'ChatGPT', path: 'ChatGPT', icon: Cpu },
+        { name: 'Midjourney', path: 'Midjourney', icon: Image },
+        { name: 'Claude', path: 'Claude', icon: Cpu }
+      ]
+    },
+    {
+      title: "Security & VPN",
+      categories: [
+        { name: 'NordVPN', path: 'NordVPN', icon: Shield },
+        { name: 'ExpressVPN', path: 'ExpressVPN', icon: Shield },
+        { name: 'Malwarebytes', path: 'Malwarebytes', icon: Shield }
+      ]
+    }
+  ];
+
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchTerm.trim()) {
@@ -83,6 +160,10 @@ const MainLayout = () => {
       navigate(`/category?search=${encodeURIComponent(searchTerm.trim())}`);
       setLoading(false);
     }
+  };
+
+  const handleCategoryClick = (categoryPath) => {
+    navigate(`/category/${categoryPath}`);
   };
 
   // Ví dụ hàm gọi API với token
@@ -266,38 +347,157 @@ const MainLayout = () => {
             </div>
           </div>
 
-          {/* Navigation Menu - SỬA PHẦN NÀY */}
-          <nav className="flex space-x-6 py-2 border-t border-border/50 text-sm overflow-x-auto">
-            {[
-              { name: 'Xem Phim', path: 'movie' },
-              { name: 'Nghe Nhạc', path: 'music' },
-              { name: 'Học Tập', path: 'hoc-tap-' },
-              { name: 'Thời trang nữ', path: 'thoi-trang-nu' },
-              { name: 'Đồ gia dụng', path: 'do-gia-dung' },
-              { name: 'Sức khỏe & Sắc đẹp', path: 'suc-khoe-sac-dep' },
-            ].map((item) => (
+          {/* Navigation Menu - MEGA MENU NGANG */}
+          <nav className="flex items-center space-x-6 py-2 border-t border-border/50 text-sm overflow-x-auto">
+            {/* Mega Menu cho Danh mục */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button 
+                  variant="ghost" 
+                  className="flex items-center space-x-1 text-lg font-semibold hover:text-primary transition-colors"
+                >
+                  <Grid3X3 className="h-5 w-5" />
+                  <span>Danh mục</span>
+                  <ChevronDown className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent 
+                align="start" 
+                className="w-screen max-w-6xl p-6"
+                sideOffset={5}
+              >
+                
+                {/* Grid Layout cho các nhóm danh mục */}
+                <div className="grid grid-cols-6 gap-6">
+                  {categoryGroups.map((group, groupIndex) => (
+                    <div key={groupIndex} className="space-y-3">
+                      <h4 className="font-semibold text-sm text-primary border-b border-primary/20 pb-2">
+                        {group.title}
+                      </h4>
+                      <div className="space-y-2">
+                        {group.categories.map(({ name, path, icon: Icon }) => (
+                          <button
+                            key={name}
+                            onClick={() => handleCategoryClick(path)}
+                            className="w-full flex items-center space-x-2 p-2 rounded-md hover:bg-accent transition-colors text-left group"
+                          >
+                            <div className="flex items-center justify-center w-8 h-8 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                              <Icon className="h-4 w-4 text-primary" />
+                            </div>
+                            <span className="text-sm font-medium group-hover:text-primary transition-colors">
+                              {name}
+                            </span>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Footer của Mega Menu */}
+                <div className="mt-8 pt-6 border-t border-border/50">
+                  <div className="flex justify-between items-center">
+                    <div className="flex space-x-4">
+                      <Link 
+                        to="/categories/trending" 
+                        className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg hover:from-orange-600 hover:to-red-600 transition-all"
+                      >
+                        <Lightning className="h-4 w-4" />
+                        <span className="font-medium">Xu hướng</span>
+                      </Link>
+                      <Link 
+                        to="/categories/new" 
+                        className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all"
+                      >
+                        <Zap className="h-4 w-4" />
+                        <span className="font-medium">Mới nhất</span>
+                      </Link>
+                    </div>
+                    <Link 
+                      to="/categories" 
+                      className="text-primary hover:text-primary/80 font-medium flex items-center space-x-1"
+                    >
+                      <span>Xem tất cả danh mục</span>
+                      <ChevronDown className="h-4 w-4 rotate-[-90deg]" />
+                    </Link>
+                  </div>
+                </div>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* Quick Links ngang */}
+            <div className="flex items-center space-x-6">
+              {/* Top Categories */}
+              {[
+                { name: 'Netflix', path: 'Netflix', icon: Video },
+                { name: 'Adobe', path: 'Adobe', icon: PenTool },
+                { name: 'Microsoft', path: 'Microsoft', icon: Monitor },
+                { name: 'Spotify', path: 'Spotify', icon: Music },
+                { name: 'AI Tools', path: 'Ai', icon: Cpu },
+              ].map(({ name, path, icon: Icon }) => (
+                <NavLink
+                  key={name}
+                  to={`/category/${path}`}
+                  className={({ isActive }) =>
+                    `flex items-center hover:text-primary transition-colors pb-1 whitespace-nowrap ${
+                      isActive ? 'text-primary border-b-2 border-primary font-semibold' : 'text-muted-foreground'
+                    }`
+                  }
+                >
+                  <Icon className="h-4 w-4 mr-1" />
+                  {name}
+                </NavLink>
+              ))}
+              
+              {/* Special Links */}
               <NavLink
-                key={item.name}
-                to={`/category/${item.path}`}
+                to="/flash-sale"
                 className={({ isActive }) =>
-                  `hover:text-primary transition-colors pb-1 whitespace-nowrap ${
-                    isActive ? 'text-primary border-b-2 border-primary font-semibold' : 'text-muted-foreground'
+                  `flex items-center hover:text-red-600 transition-colors pb-1 text-red-500 font-semibold whitespace-nowrap ${
+                    isActive ? 'border-b-2 border-red-500' : ''
                   }`
                 }
               >
-                {item.name}
+                <Zap className="h-4 w-4 mr-1" />
+                Flash Sale
               </NavLink>
-            ))}
-            <NavLink
-              to="/flash-sale"
-              className={({ isActive }) =>
-                `hover:text-red-600 transition-colors pb-1 text-red-500 font-semibold whitespace-nowrap ${
-                  isActive ? 'border-b-2 border-red-500' : ''
-                }`
-              }
-            >
-              Flash Sale
-            </NavLink>
+
+              <NavLink
+                to="/deals"
+                className={({ isActive }) =>
+                  `flex items-center hover:text-green-600 transition-colors pb-1 text-green-500 font-semibold whitespace-nowrap ${
+                    isActive ? 'border-b-2 border-green-500' : ''
+                  }`
+                }
+              >
+                <Lightning className="h-4 w-4 mr-1" />
+                Ưu đãi
+              </NavLink>
+
+              <NavLink
+                to="/bundles"
+                className={({ isActive }) =>
+                  `flex items-center hover:text-purple-600 transition-colors pb-1 text-purple-500 font-semibold whitespace-nowrap ${
+                    isActive ? 'border-b-2 border-purple-500' : ''
+                  }`
+                }
+              >
+                <Package className="h-4 w-4 mr-1" />
+                Combo
+              </NavLink>
+
+              <NavLink
+                to="/gift-cards"
+                className={({ isActive }) =>
+                  `flex items-center hover:text-pink-600 transition-colors pb-1 text-pink-500 font-semibold whitespace-nowrap ${
+                    isActive ? 'border-b-2 border-pink-500' : ''
+                  }`
+                }
+              >
+                <FileText className="h-4 w-4 mr-1" />
+                Gift Cards
+              </NavLink>
+            </div>
           </nav>
         </div>
       </header>
@@ -308,9 +508,10 @@ const MainLayout = () => {
       </main>
 
       {/* Footer */}
-        <Footer />
+      <Footer />
     </div>
   );
 };
 
 export default MainLayout;
+

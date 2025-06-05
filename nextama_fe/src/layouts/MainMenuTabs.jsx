@@ -1,5 +1,3 @@
-// src/components/MainMenuTabs.jsx
-
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
@@ -31,12 +29,17 @@ const MainMenuTabs = () => {
       <NavLink
         to="/flash-sale"
         className={({ isActive }) =>
-          `hover:text-primary transition-colors pb-1 text-red-500 font-semibold ${
+          `hover:text-primary transition-colors pb-1 text-red-500 font-semibold flex items-center ${
             isActive ? 'border-b-2 border-red-500' : ''
           }`
         }
       >
-        Flash Sale
+        <img
+          src="/assets/fire-2.gif"
+          alt="fire"
+          className="h-5 w-5 mr-1 object-contain"
+        />
+        Flash sale dele deal sốc!
       </NavLink>
     </nav>
   );

@@ -1,4 +1,4 @@
-import React, { useRef } from "react"; // Thêm useRef để tham chiếu đến DOM
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import {
   Package,
@@ -21,7 +21,7 @@ import {
   Heart,
   MessageSquare,
   Send,
-  GraduationCap, // Thêm import này
+  GraduationCap,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -30,98 +30,20 @@ import {
   CardHeader,
   CardTitle,
   CardContent,
-  CardFooter,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import ProductCard from "@/components/ProductCard.jsx";
-import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
 import BannerCarousel from "./BannerCarousel";
 
-const CountdownTimer = ({ targetDate }) => {
-  const calculateTimeLeft = () => {
-    const difference = +new Date(targetDate) - +new Date();
-    let timeLeft = {};
-
-    if (difference > 0) {
-      timeLeft = {
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60),
-      };
-    }
-    return timeLeft;
-  };
-
-  const [timeLeft, setTimeLeft] = React.useState(calculateTimeLeft());
-
-  React.useEffect(() => {
-    const timer = setTimeout(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
-    return () => clearTimeout(timer);
-  });
-
-  const timerComponents = [];
-  Object.keys(timeLeft).forEach((interval) => {
-    if (
-      !timeLeft[interval] &&
-      interval !== "seconds" &&
-      interval !== "minutes" &&
-      interval !== "hours"
-    ) {
-      return;
-    }
-    timerComponents.push(
-      <span
-        key={interval}
-        className="font-mono bg-white/20 text-white px-2 py-1 rounded text-sm md:text-md"
-      >
-        {String(timeLeft[interval] || 0).padStart(2, "0")}
-      </span>
-    );
-  });
-
-  return timerComponents.length ? (
-    <div className="flex items-center space-x-1 md:space-x-2">
-      {timerComponents.reduce(
-        (acc, curr, idx) =>
-          idx === 0
-            ? [curr]
-            : [
-                ...acc,
-                <span
-                  key={`sep-${idx}`}
-                  className="text-white text-sm md:text-md"
-                >
-                  :
-                </span>,
-                curr,
-              ],
-        []
-      )}
-    </div>
-  ) : (
-    <span className="font-mono bg-white/20 text-white px-2 py-1 rounded text-sm md:text-md">
-      Hết giờ!
-    </span>
-  );
-};
-
 const HomePage = () => {
   const { toast } = useToast();
-  const flashSaleEndDate = new Date(
-    Date.now() + 2 * 60 * 60 * 1000 + 30 * 60 * 1000
-  ); // 2 hours 30 minutes from now
-  const categoryRef = useRef(null); // Tham chiếu đến container danh mục
+  const categoryRef = useRef(null);
 
   const scroll = (direction) => {
     if (categoryRef.current) {
-      // Tính toán scroll amount dựa trên viewport width và số items muốn hiển thị
       const containerWidth = categoryRef.current.offsetWidth;
-      const itemsToShow = window.innerWidth >= 768 ? 5 : 4; // Desktop: 5 items, Mobile: 4 items
-      const scrollAmount = (containerWidth / itemsToShow) * 3; // Cuộn 3 items mỗi lần
+      const itemsToShow = window.innerWidth >= 768 ? 5 : 4;
+      const scrollAmount = (containerWidth / itemsToShow) * 3;
 
       categoryRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
@@ -131,10 +53,10 @@ const HomePage = () => {
   };
 
   const categories = [
-    { name: "Học Tập", icon: GraduationCap, link: "/category/study" }, // Đã thay đổi từ Shirt thành GraduationCap
+    { name: "Học Tập", icon: GraduationCap, link: "/category/study" },
     { name: "Xem Phim", icon: Clapperboard, link: "/category/movies" },
     { name: "Nghe Nhạc", icon: Music, link: "/category/music" },
-    { name: "Làm Việc", icon: Briefcase, link: "/category/work"},
+    { name: "Làm Việc", icon: Briefcase, link: "/category/work" },
     { name: "Thiết kế - Đồ họa", icon: Pipette, link: "/category/design" },
     { name: "Sắc đẹp", icon: SparklesIcon, link: "/category/sac-dep" },
     { name: "AI", icon: Bot, link: "/category/AI" },
@@ -146,6 +68,57 @@ const HomePage = () => {
     { name: "Ô tô - Xe máy", icon: Bike, link: "/category/oto-xemay" },
     { name: "Đồ gia dụng", icon: Pipette, link: "/category/dogiadung" },
     { name: "Văn phòng phẩm", icon: BookOpen, link: "/category/vanphongpham" },
+  ];
+
+  const flashSaleProducts = [
+    {
+      id: "1",
+      name: "Adobe 80GB",
+      description: "Adobe 80GB Acc Cổ 1 Năm Ở Thịnh",
+      price: "1.100.000 đ",
+      image: "https://example.com/adobe.png",
+      discountPercentage: 88,
+      tags: ["KHÔNG"],
+      sold: 5,
+      total: 5,
+      alt: "Adobe 80GB",
+    },
+    {
+      id: "2",
+      name: "CURSOR AI",
+      description: "Cursor Chính Số 1 Năm (BH 1 Tháng)",
+      price: "500.000 đ",
+      image: "https://example.com/cursor.png",
+      discountPercentage: 93,
+      tags: ["KHÔNG"],
+      sold: 0,
+      total: 10,
+      alt: "Cursor AI",
+    },
+    {
+      id: "3",
+      name: "CURSOR AI",
+      description: "Cursor Chính Số 1 Năm (KHÔNG)",
+      price: "500.000 đ",
+      image: "https://example.com/cursor.png",
+      discountPercentage: 93,
+      tags: ["KHÔNG"],
+      sold: 0,
+      total: 10,
+      alt: "Cursor AI",
+    },
+    {
+      id: "4",
+      name: "Key Windows 10/11",
+      description: "Gói 1 Key Windows 10/11 Pro Key",
+      price: "130.000 đ",
+      image: "https://example.com/windows.png",
+      discountPercentage: 25,
+      tags: ["NEW", "KHÔNG"],
+      sold: 6,
+      total: 11,
+      alt: "Key Windows 10/11",
+    },
   ];
 
   const products = [
@@ -229,20 +202,16 @@ const HomePage = () => {
       price: "280.000₫",
       rating: 4.7,
       soldCount: 1500,
-      image_description:
-        "Chuột máy tính không dây màu đen thiết kế công thái học",
+      image_description: "Chuột máy tính không dây màu đen thiết kế công thái học",
       alt: "Chuột không dây ergonomic đen",
       location: "Hà Nội",
     },
   ];
 
-
   return (
     <div className="space-y-8 md:space-y-10">
-      <BannerCarousel /> {/* Gọi component BannerCarousel tại đây */}
-      {/* Carousel ngang cho danh mục với nút bấm */}
+      <BannerCarousel />
       <div className="relative px-2 md:px-4">
-        {/* Nút cuộn trái */}
         <Button
           variant="outline"
           size="icon"
@@ -265,7 +234,6 @@ const HomePage = () => {
           </svg>
         </Button>
 
-        {/* Container chứa các danh mục */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -273,7 +241,6 @@ const HomePage = () => {
           className="overflow-x-hidden select-none touch-none mx-8"
           ref={categoryRef}
         >
-          {/* Inner container với grid layout để hiển thị đúng số lượng items */}
           <div className="flex space-x-4 md:space-x-6 pb-4 w-max">
             {categories.map((category) => (
               <Link
@@ -310,7 +277,6 @@ const HomePage = () => {
           </div>
         </motion.div>
 
-        {/* Nút cuộn phải */}
         <Button
           variant="outline"
           size="icon"
@@ -333,35 +299,38 @@ const HomePage = () => {
           </svg>
         </Button>
       </div>
-      {/* Phần còn lại của trang giữ nguyên */}
-      <Card className="shadow-lg border-primary/30 dark:border-primary/50">
-        <CardHeader className="bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-t-lg p-4 md:p-5">
-          <CardTitle className="text-xl md:text-2xl flex items-center justify-between">
-            <div className="relative flex items-center">
-              {/* Icon sấm sét */}
-              <Zap className="h-6 w-6 md:h-7 md:w-7 animate-pulse z-10" />
 
-              {/* Lửa lớn hơn, nằm trên đầu sấm sét */}
-              <img
-                src="/assets/fire-2.gif"
-                alt="fire"
-                className="absolute -top-20 -left-5 mt-2 h-20 w-20 object-contain z-20 pointer-events-none"
-              />
+<Card className="shadow-lg border-primary/30 dark:border-primary/50">
+  <CardHeader className="bg-gradient-to-r from-orange-500 to-red-600 text-whit p-4 md:p-5 rounded-t-lg">
+    <CardTitle
+      className="text-xl md:text-2xl flex items-center w-full p-2 rounded-xl"
+      style={{
+        background:
+          'linear-gradient(to right, #fcd34d 40%, #fde68a 60%)', // từ vàng đậm sang vàng nhạt mềm mại
+      }}
+    >
+      <div className="relative flex items-center">
+        <div className="mr-2 scale-[2.5] transform origin-center">
+          <img
+            src="/assets/fire-2.gif"
+            alt="fire"
+            className="h-16 w-16 object-contain -mt-12"
+          />
+        </div>
+        <span className="font-semibold">Flash sale dele deal sốc!</span>
+      </div>
+    </CardTitle>
+  </CardHeader>
 
-              {/* Text Flash Sale */}
-              <span className="ml-2 font-semibold">Flash Sale</span>
-            </div>
+  <CardContent className="p-3 md:p-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 bg-gradient-to-r from-orange-500 to-red-600 text-white p-4 md:p-5 rounded-b-lg">
+    {flashSaleProducts.map((product) => (
+      <ProductCard key={product.id} product={product} />
+    ))}
+  </CardContent>
+</Card>
 
-            <CountdownTimer targetDate={flashSaleEndDate} />
-          </CardTitle>
-        </CardHeader>
 
-        <CardContent className="p-3 md:p-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-          {products.slice(0, 4).map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </CardContent>
-      </Card>
+
       <section>
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl md:text-2xl font-semibold">Gợi Ý Hôm Nay</h2>
@@ -375,7 +344,7 @@ const HomePage = () => {
           ))}
         </div>
       </section>
-      </div>
+    </div>
   );
 };
 
