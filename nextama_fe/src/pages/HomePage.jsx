@@ -33,7 +33,8 @@ import {
 } from "@/components/ui/card";
 import ProductCard from "@/components/ProductCard.jsx";
 import { useToast } from "@/components/ui/use-toast";
-import BannerCarousel from "./BannerCarousel";
+import BannerCarousel from "@/pages/BannerCarousel.jsx";
+import OverviewCards from "@/pages/OverviewCards";
 
 const HomePage = () => {
   const { toast } = useToast();
@@ -208,6 +209,13 @@ const HomePage = () => {
     },
   ];
 
+    const stats = [
+    { icon: '/assets/store.svg', value: 399, label: 'Cộng tác viên' },
+    { icon: '/assets/order.svg', value: 51762, label: 'Đơn hàng' },
+    { icon: '/assets/reviews.svg', value: 5832, label: 'Đánh giá' },
+    { icon: '/assets/balloon.svg', value: 3, label: 'Năm hoạt động' },
+  ];
+
   return (
     <div className="space-y-8 md:space-y-10">
       <BannerCarousel />
@@ -300,50 +308,56 @@ const HomePage = () => {
         </Button>
       </div>
 
-<Card className="shadow-lg border-primary/30 dark:border-primary/50">
-  <CardHeader className="bg-gradient-to-r from-orange-500 to-red-600 text-whit p-4 md:p-5 rounded-t-lg">
-    <CardTitle
-      className="text-xl md:text-2xl flex items-center w-full p-2 rounded-xl"
-      style={{
-        background:
-          'linear-gradient(to right, #fcd34d 40%, #fde68a 60%)', // từ vàng đậm sang vàng nhạt mềm mại
-      }}
-    >
-      <div className="relative flex items-center">
-        <div className="mr-2 scale-[2.5] transform origin-center">
-          <img
-            src="/assets/fire-2.gif"
-            alt="fire"
-            className="h-16 w-16 object-contain -mt-12"
-          />
-        </div>
-        <span className="font-semibold">Flash sale dele deal sốc!</span>
-      </div>
-    </CardTitle>
-  </CardHeader>
+      <Card className="shadow-lg border-primary/30 dark:border-primary/50">
+        <CardHeader className="bg-gradient-to-r from-orange-500 to-red-600 text-whit p-4 md:p-5 rounded-t-lg">
+          <CardTitle
+            className="text-xl md:text-2xl flex items-center w-full p-2 rounded-xl"
+            style={{
+              background:
+                'linear-gradient(to right, #fcd34d 40%, #fde68a 60%)', // từ vàng đậm sang vàng nhạt mềm mại
+            }}
+          >
+            <div className="relative flex items-center">
+              <div className="mr-2 scale-[2.5] transform origin-center">
+                <img
+                  src="/assets/fire-2.gif"
+                  alt="fire"
+                  className="h-16 w-16 object-contain -mt-12"
+                />
+              </div>
+              <span className="font-semibold">Flash sale dele deal sốc!</span>
+            </div>
+          </CardTitle>
+        </CardHeader>
 
-  <CardContent className="p-3 md:p-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 bg-gradient-to-r from-orange-500 to-red-600 text-white p-4 md:p-5 rounded-b-lg">
-    {flashSaleProducts.map((product) => (
-      <ProductCard key={product.id} product={product} />
-    ))}
-  </CardContent>
-</Card>
-
-
-
-      <section>
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl md:text-2xl font-semibold">Gợi Ý Hôm Nay</h2>
-          <Link to="/category" className="text-sm text-primary hover:underline">
-            Xem tất cả
-          </Link>
-        </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
-          {products.map((product) => (
+        <CardContent className="p-3 md:p-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 bg-gradient-to-r from-orange-500 to-red-600 text-white p-4 md:p-5 rounded-b-lg">
+          {flashSaleProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
-        </div>
-      </section>
+        </CardContent>
+      </Card>
+
+      {/* cards */}
+      <OverviewCards products={products} />
+
+      {/* tổng sản phẩm */}
+    <div className="wp-block-wd-container wd-dir-col bg-white p-4 rounded-lg shadow-md">
+      <div className="wp-block-wd-row flex justify-around items-center">
+        {stats.map((stat, index) => (
+          <div key={index} className="wp-block-wd-column flex flex-col items-center">
+            <div className="wp-block-wd-icon mb-2">
+              <img
+                src={stat.icon}
+                alt={stat.label}
+                className="h-8 w-8"
+              />
+            </div>
+            <div className="text-xl font-bold text-blue-600">{stat.value}</div>
+            <div className="text-sm text-gray-600">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
     </div>
   );
 };

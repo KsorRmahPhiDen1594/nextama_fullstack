@@ -363,7 +363,7 @@ const MainLayout = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent 
                 align="start" 
-                className="w-screen max-w-6xl p-6"
+                className="w-screen p-6"
                 sideOffset={5}
               >
                 
@@ -460,42 +460,6 @@ const MainLayout = () => {
               >
                 <Zap className="h-4 w-4 mr-1" />
                 Flash Sale
-              </NavLink>
-
-              <NavLink
-                to="/deals"
-                className={({ isActive }) =>
-                  `flex items-center hover:text-green-600 transition-colors pb-1 text-green-500 font-semibold whitespace-nowrap ${
-                    isActive ? 'border-b-2 border-green-500' : ''
-                  }`
-                }
-              >
-                <Lightning className="h-4 w-4 mr-1" />
-                Ưu đãi
-              </NavLink>
-
-              <NavLink
-                to="/bundles"
-                className={({ isActive }) =>
-                  `flex items-center hover:text-purple-600 transition-colors pb-1 text-purple-500 font-semibold whitespace-nowrap ${
-                    isActive ? 'border-b-2 border-purple-500' : ''
-                  }`
-                }
-              >
-                <Package className="h-4 w-4 mr-1" />
-                Combo
-              </NavLink>
-
-              <NavLink
-                to="/gift-cards"
-                className={({ isActive }) =>
-                  `flex items-center hover:text-pink-600 transition-colors pb-1 text-pink-500 font-semibold whitespace-nowrap ${
-                    isActive ? 'border-b-2 border-pink-500' : ''
-                  }`
-                }
-              >
-                <FileText className="h-4 w-4 mr-1" />
-                Gift Cards
               </NavLink>
             </div>
           </nav>
