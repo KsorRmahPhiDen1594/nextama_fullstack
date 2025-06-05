@@ -29,7 +29,7 @@ import React, { useState, useEffect } from 'react';
         const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
         // Add a default admin if none exists for testing
         if (!storedUsers.some(u => u.role === 'admin')) {
-            storedUsers.push({ id: 'admin001', name: 'Default Admin', email: 'admin@shopeecharm.com', password: 'password', role: 'admin', status: 'active', joinedDate: new Date().toISOString().split('T')[0] });
+            storedUsers.push({ id: 'admin001', name: 'Default Admin', email: 'admin@NextAma.com', password: 'password', role: 'admin', status: 'active', joinedDate: new Date().toISOString().split('T')[0] });
             localStorage.setItem('users', JSON.stringify(storedUsers));
         }
         setUsers(storedUsers.map(u => ({ ...u, status: u.status || 'active', joinedDate: u.joinedDate || new Date().toISOString().split('T')[0] })));

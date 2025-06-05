@@ -4,8 +4,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const categories = [
-  'Điện thoại',
-  'Laptop',
+  'Xem Phim',
+  'Nghe Nhạc',
   'Thời trang nam',
   'Thời trang nữ',
   'Đồ gia dụng',

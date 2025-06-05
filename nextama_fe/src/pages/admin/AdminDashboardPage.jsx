@@ -81,7 +81,7 @@ import React from 'react';
                   <CardTitle className="flex items-center"><TrendingUp className="mr-2 h-5 w-5 text-primary"/>Top ngành hàng bán chạy</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
-                  {["Thời trang Nam", "Điện thoại & Phụ kiện", "Thiết bị gia dụng", "Mẹ & Bé", "Sắc đẹp"].map((cat, index) => (
+                  {["Học Tập", "Nghe Nhạc & Phụ kiện", "Thiết bị gia dụng", "Xem Phim", "Sắc đẹp"].map((cat, index) => (
                     <div key={cat} className="flex justify-between items-center text-sm">
                       <span className="text-muted-foreground">{index + 1}. {cat}</span>
                       <Badge variant="secondary" className="font-mono">{Math.floor(Math.random() * 500 + 50)} đơn</Badge>

@@ -8,7 +8,7 @@ import React from 'react';
     const faqData = [
       {
         id: "q1",
-        question: "Làm thế nào để đặt hàng trên ShopeeCharm?",
+        question: "Làm thế nào để đặt hàng trên NextAma?",
         answer: "Để đặt hàng, bạn chỉ cần tìm sản phẩm yêu thích, thêm vào giỏ hàng, sau đó tiến hành thanh toán và điền thông tin giao hàng. Rất đơn giản!",
         icon: ShoppingCart
       },
@@ -20,7 +20,7 @@ import React from 'react';
       },
       {
         id: "q3",
-        question: "ShopeeCharm hỗ trợ những phương thức thanh toán nào?",
+        question: "NextAma hỗ trợ những phương thức thanh toán nào?",
         answer: "Chúng tôi hỗ trợ thanh toán khi nhận hàng (COD), thanh toán qua ví điện tử (ZaloPay, Momo, ShopeeCharmPay), và thẻ tín dụng/ghi nợ.",
         icon: CreditCard
       },
@@ -33,7 +33,7 @@ import React from 'react';
       {
         id: "q5",
         question: "Tôi có thể liên hệ hỗ trợ bằng cách nào?",
-        answer: "Bạn có thể chat trực tiếp với chúng tôi qua biểu tượng chat ở góc dưới màn hình, hoặc gửi email đến support@shopeecharm.vn, hoặc gọi hotline 1900 1221.",
+        answer: "Bạn có thể chat trực tiếp với chúng tôi qua biểu tượng chat ở góc dưới màn hình, hoặc gửi email đến support@NextAma.vn, hoặc gọi hotline 1900 1221.",
         icon: MessageSquare
       }
     ];
@@ -48,7 +48,7 @@ import React from 'react';
             className="text-center mb-10"
           >
             <LifeBuoy className="mx-auto h-16 w-16 text-primary mb-4" />
-            <h1 className="text-3xl md:text-4xl font-bold mb-2">Trung Tâm Trợ Giúp ShopeeCharm</h1>
+            <h1 className="text-3xl md:text-4xl font-bold mb-2">Trung Tâm Trợ Giúp NextAma</h1>
             <p className="text-lg text-muted-foreground">Chúng tôi ở đây để hỗ trợ bạn!</p>
           </motion.div>
 

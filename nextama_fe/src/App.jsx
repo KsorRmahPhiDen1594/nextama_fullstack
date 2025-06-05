@@ -18,7 +18,6 @@ import React, { Suspense } from 'react';
     const UserAccountPage = React.lazy(() => import('@/pages/UserAccountPage.jsx'));
     const LoginPage = React.lazy(() => import('@/pages/LoginPage.jsx'));
     const RegisterPage = React.lazy(() => import('@/pages/RegisterPage.jsx'));
-    const BecomeSellerPage = React.lazy(() => import('@/pages/BecomeSellerPage.jsx'));
     const AdminLoginPage = React.lazy(() => import('@/pages/admin/AdminLoginPage.jsx'));
     const AdminDashboardPage = React.lazy(() => import('@/pages/admin/AdminDashboardPage.jsx'));
     const AdminUserManagementPage = React.lazy(() => import('@/pages/admin/AdminUserManagementPage.jsx'));
@@ -48,7 +47,6 @@ import React, { Suspense } from 'react';
                         <Route path="checkout" element={<ProtectedRoute><CheckoutPage /></ProtectedRoute>} />
                         <Route path="account/:tab?" element={<ProtectedRoute><UserAccountPage /></ProtectedRoute>} />
                         <Route path="notifications" element={<ProtectedRoute><NotificationsPage /></ProtectedRoute>} />
-                        <Route path="become-seller" element={<ProtectedRoute><BecomeSellerPage /></ProtectedRoute>} />
                         <Route path="help" element={<HelpPage />} />
                         <Route path="about" element={<AboutPage />} />
                         <Route path="terms" element={<TermsPage />} />

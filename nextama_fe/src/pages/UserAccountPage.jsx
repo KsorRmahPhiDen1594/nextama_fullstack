@@ -20,14 +20,14 @@ import React from 'react';
       const { wishlistItems, setWishlistItems } = useWishlist(); // Assuming setWishlistItems is for clearing on logout or similar
       
       const [userProfile, setUserProfile] = React.useState({
-        name: currentUser?.name || "Người dùng ShopeeCharm",
+        name: currentUser?.name || "Người dùng NextAma",
         email: currentUser?.email || "user@example.com",
         phone: currentUser?.phone || "0987654321",
         avatar_placeholder: `Avatar của ${currentUser?.name || 'Người dùng'}`,
         shopeePayBalance: "1.500.000₫",
         addresses: [
-          { id: 1, fullName: currentUser?.name || "Người dùng ShopeeCharm", phone: "0987654321", address: "123 Đường ABC, Phường XYZ, Quận 1", city: "TP.HCM", isDefault: true },
-          { id: 2, fullName: currentUser?.name || "Người dùng ShopeeCharm", phone: "0912345678", address: "456 Đường DEF, Phường UVW, Quận Hai Bà Trưng", city: "Hà Nội", isDefault: false },
+          { id: 1, fullName: currentUser?.name || "Người dùng NextAma", phone: "0987654321", address: "123 Đường ABC, Phường XYZ, Quận 1", city: "TP.HCM", isDefault: true },
+          { id: 2, fullName: currentUser?.name || "Người dùng NextAma", phone: "0912345678", address: "456 Đường DEF, Phường UVW, Quận Hai Bà Trưng", city: "Hà Nội", isDefault: false },
         ],
       });
       const [orderHistory, setOrderHistory] = React.useState([]);
@@ -294,7 +294,7 @@ import React from 'react';
                           <Switch id="notif-feed" />
                         </div>
                         <div className="flex items-center justify-between p-3 rounded-md border hover:bg-accent/50 dark:hover:bg-slate-700/30">
-                          <Label htmlFor="notif-newsletter" className="text-sm cursor-pointer flex-grow">Bản tin ShopeeCharm</Label>
+                          <Label htmlFor="notif-newsletter" className="text-sm cursor-pointer flex-grow">Bản tin NextAma</Label>
                           <Switch id="notif-newsletter" defaultChecked />
                         </div>
                     </div>

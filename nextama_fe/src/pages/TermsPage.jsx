@@ -8,8 +8,8 @@ import React from 'react';
           title: "Điều 1: Giới thiệu chung",
           icon: FileText,
           content: [
-            "Chào mừng bạn đến với ShopeeCharm! Bằng việc truy cập và sử dụng nền tảng của chúng tôi, bạn đồng ý tuân thủ các Điều khoản Dịch vụ này.",
-            "ShopeeCharm là một nền tảng thương mại điện tử cho phép người dùng mua và bán sản phẩm trực tuyến. Chúng tôi không phải là người bán trực tiếp của các sản phẩm (trừ khi có ghi chú khác)."
+            "Chào mừng bạn đến với NextAma! Bằng việc truy cập và sử dụng nền tảng của chúng tôi, bạn đồng ý tuân thủ các Điều khoản Dịch vụ này.",
+            "NextAma là một nền tảng thương mại điện tử cho phép người dùng mua và bán sản phẩm trực tuyến. Chúng tôi không phải là người bán trực tiếp của các sản phẩm (trừ khi có ghi chú khác)."
           ]
         },
         {
@@ -27,14 +27,14 @@ import React from 'react';
           content: [
             "Người bán chịu trách nhiệm về chất lượng, thông tin và tính hợp pháp của sản phẩm đăng bán.",
             "Người mua có quyền đánh giá sản phẩm và người bán sau khi hoàn tất giao dịch.",
-            "Mọi tranh chấp phát sinh giữa người mua và người bán sẽ được giải quyết dựa trên chính sách của ShopeeCharm và quy định pháp luật hiện hành."
+            "Mọi tranh chấp phát sinh giữa người mua và người bán sẽ được giải quyết dựa trên chính sách của NextAma và quy định pháp luật hiện hành."
           ]
         },
         {
           title: "Điều 4: Bảo mật thông tin",
           icon: Shield,
           content: [
-            "Chúng tôi cam kết bảo vệ thông tin cá nhân của bạn theo Chính sách Bảo mật của ShopeeCharm.",
+            "Chúng tôi cam kết bảo vệ thông tin cá nhân của bạn theo Chính sách Bảo mật của NextAma.",
             "Thông tin của bạn có thể được sử dụng để cải thiện dịch vụ, cá nhân hóa trải nghiệm và cho các mục đích tiếp thị (nếu bạn đồng ý)."
           ]
         }
@@ -49,7 +49,7 @@ import React from 'react';
             className="text-center mb-10 md:mb-12"
           >
             <FileText className="mx-auto h-16 w-16 md:h-20 md:w-20 text-primary mb-4" />
-            <h1 className="text-3xl md:text-4xl font-bold mb-2">Điều Khoản Dịch Vụ ShopeeCharm</h1>
+            <h1 className="text-3xl md:text-4xl font-bold mb-2">Điều Khoản Dịch Vụ NextAma</h1>
             <p className="text-md text-muted-foreground">Cập nhật lần cuối: {new Date().toLocaleDateString('vi-VN')}</p>
           </motion.div>
 
@@ -60,7 +60,7 @@ import React from 'react';
             className="max-w-3xl mx-auto bg-card dark:bg-slate-800 p-6 md:p-8 rounded-lg shadow-lg"
           >
             <p className="text-muted-foreground mb-6 text-sm md:text-md">
-              Vui lòng đọc kỹ các Điều khoản Dịch vụ này trước khi sử dụng nền tảng ShopeeCharm. Việc bạn tiếp tục sử dụng nền tảng đồng nghĩa với việc bạn chấp nhận và đồng ý bị ràng buộc bởi các điều khoản này.
+              Vui lòng đọc kỹ các Điều khoản Dịch vụ này trước khi sử dụng nền tảng NextAma. Việc bạn tiếp tục sử dụng nền tảng đồng nghĩa với việc bạn chấp nhận và đồng ý bị ràng buộc bởi các điều khoản này.
             </p>
             {sections.map((section, index) => (
               <motion.section
@@ -88,7 +88,7 @@ import React from 'react';
             >
               <h2 className="text-xl font-semibold mb-2">Liên hệ</h2>
               <p className="text-sm text-muted-foreground">
-                Nếu bạn có bất kỳ câu hỏi nào về Điều khoản Dịch vụ này, vui lòng liên hệ với chúng tôi qua email: <a href="mailto:legal@shopeecharm.vn" className="text-primary hover:underline">legal@shopeecharm.vn</a>.
+                Nếu bạn có bất kỳ câu hỏi nào về Điều khoản Dịch vụ này, vui lòng liên hệ với chúng tôi qua email: <a href="mailto:legal@NextAma.vn" className="text-primary hover:underline">legal@NextAma.vn</a>.
               </p>
             </motion.div>
           </motion.div>

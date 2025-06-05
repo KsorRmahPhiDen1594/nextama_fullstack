@@ -16,7 +16,7 @@ import React, { useState, useEffect } from 'react';
     const mockAdminProducts = Array(15).fill(null).map((_, i) => ({
       id: `prod${i + 1}`,
       name: `Sản phẩm mẫu ${i + 1} cho Admin`,
-      category: ["Điện thoại", "Laptop", "Thời trang", "Đồ gia dụng", "Sách"][Math.floor(Math.random() * 5)],
+      category: ["Xem Phim", "Nghe Nhạc", "Thời trang", "Đồ gia dụng", "Sách"][Math.floor(Math.random() * 5)],
       price: (Math.random() * 2000000 + 100000).toFixed(0),
       stock: Math.floor(Math.random() * 200),
       status: Math.random() > 0.2 ? 'active' : 'hidden', // active, hidden, violation

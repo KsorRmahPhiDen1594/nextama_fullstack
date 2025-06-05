@@ -16,7 +16,7 @@ import React, { useState } from 'react';
         { id: 'p2', title: 'Voucher FREESHIP MAX đã về ví!', description: 'Sử dụng ngay cho đơn hàng từ 99K. Số lượng có hạn.', date: '2025-05-25 12:00', read: false, icon: Tag, type: 'Khuyến mãi' },
       ],
       system: [
-        { id: 's1', title: 'Chào mừng bạn đến với ShopeeCharm!', description: 'Khám phá ngay hàng ngàn sản phẩm và ưu đãi hấp dẫn.', date: '2025-05-20 09:00', read: true, icon: Gift, type: 'Hệ thống' },
+        { id: 's1', title: 'Chào mừng bạn đến với NextAma!', description: 'Khám phá ngay hàng ngàn sản phẩm và ưu đãi hấp dẫn.', date: '2025-05-20 09:00', read: true, icon: Gift, type: 'Hệ thống' },
         { id: 's2', title: 'Cập nhật chính sách bảo mật mới.', description: 'Vui lòng xem chi tiết để đảm bảo quyền lợi của bạn.', date: '2025-05-15 14:00', read: true, icon: Settings, type: 'Hệ thống' },
       ],
     };

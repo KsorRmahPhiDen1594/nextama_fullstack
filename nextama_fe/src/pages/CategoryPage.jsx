@@ -26,7 +26,7 @@ import React, { useState, useEffect } from 'react';
       alt: `Sản phẩm ${i+1}`,
       location: ["Hà Nội", "TP.HCM", "Đà Nẵng", "Toàn quốc"][Math.floor(Math.random()*4)],
       brand: ["Samsung", "Apple", "Xiaomi", "Coolmate", "Uniqlo", "Nike", "Adidas"][Math.floor(Math.random()*7)],
-      category: ["Điện thoại", "Laptop", "Thời trang nam", "Thời trang nữ", "Đồ gia dụng"][Math.floor(Math.random()*5)],
+      category: ["Xem Phim", "Nghe Nhạc", "Học Tập", "Thời trang nữ", "Đồ gia dụng"][Math.floor(Math.random()*5)],
       shortDescription: "Mô tả ngắn gọn, hấp dẫn về sản phẩm này. Chất lượng tuyệt vời, giá cả phải chăng."
     }));
     

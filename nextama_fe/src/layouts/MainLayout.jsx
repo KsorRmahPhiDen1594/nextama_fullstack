@@ -32,6 +32,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useShoppingCart } from '@/contexts/ShoppingCartContext';
 import { useTheme } from '@/contexts/ThemeContext';
 import { motion } from 'framer-motion';
+import Footer from '../pages/Footer';
 
 // Giả lập hàm làm mới token (cần điều chỉnh theo backend thực tế)
 async function refreshToken() {
@@ -145,9 +146,6 @@ const MainLayout = () => {
           {/* Top bar */}
           <div className="flex justify-between items-center py-2 text-xs text-muted-foreground">
             <div className="flex space-x-4">
-              <Link to="/seller-centre" className="hover:text-primary">
-                Kênh Người Bán
-              </Link>
               <Link to="/download" className="hover:text-primary">
                 Tải ứng dụng
               </Link>
@@ -244,9 +242,6 @@ const MainLayout = () => {
                       </DropdownMenuItem>
                     ) : (
                       <DropdownMenuItem asChild>
-                        <Link to="/seller-register" className="w-full flex items-center">
-                          <Briefcase className="mr-2 h-4 w-4" /> Trở thành người bán
-                        </Link>
                       </DropdownMenuItem>
                     )}
                     <DropdownMenuSeparator />
@@ -274,9 +269,9 @@ const MainLayout = () => {
           {/* Navigation Menu - SỬA PHẦN NÀY */}
           <nav className="flex space-x-6 py-2 border-t border-border/50 text-sm overflow-x-auto">
             {[
-              { name: 'Điện thoại', path: 'dien-thoai' },
-              { name: 'Laptop', path: 'laptop' },
-              { name: 'Thời trang nam', path: 'thoi-trang-nam' },
+              { name: 'Xem Phim', path: 'movie' },
+              { name: 'Nghe Nhạc', path: 'music' },
+              { name: 'Học Tập', path: 'hoc-tap-' },
               { name: 'Thời trang nữ', path: 'thoi-trang-nu' },
               { name: 'Đồ gia dụng', path: 'do-gia-dung' },
               { name: 'Sức khỏe & Sắc đẹp', path: 'suc-khoe-sac-dep' },
@@ -313,46 +308,7 @@ const MainLayout = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-muted text-muted-foreground py-8 text-center text-xs select-none">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-6">
-            <div>
-              <h3 className="font-semibold mb-3 text-foreground">Chăm sóc khách hàng</h3>
-              <ul className="space-y-2">
-                <li><Link to="/help" className="hover:text-primary">Trung tâm trợ giúp</Link></li>
-                <li><Link to="/contact" className="hover:text-primary">Liên hệ</Link></li>
-                <li><Link to="/shipping" className="hover:text-primary">Hướng dẫn mua hàng</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-3 text-foreground">Về NextAma</h3>
-              <ul className="space-y-2">
-                <li><Link to="/about" className="hover:text-primary">Giới thiệu</Link></li>
-                <li><Link to="/careers" className="hover:text-primary">Tuyển dụng</Link></li>
-                <li><Link to="/press" className="hover:text-primary">Tin tức</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-3 text-foreground">Thanh toán</h3>
-              <ul className="space-y-2">
-                <li><Link to="/payment" className="hover:text-primary">Phương thức thanh toán</Link></li>
-                <li><Link to="/installment" className="hover:text-primary">Trả góp</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-3 text-foreground">Theo dõi chúng tôi</h3>
-              <ul className="space-y-2">
-                <li><Link to="#" className="hover:text-primary">Facebook</Link></li>
-                <li><Link to="#" className="hover:text-primary">Instagram</Link></li>
-                <li><Link to="#" className="hover:text-primary">LinkedIn</Link></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-border pt-6">
-            <p>© 2024 NextAma. Tất cả quyền được bảo lưu.</p>
-          </div>
-        </div>
-      </footer>
+        <Footer />
     </div>
   );
 };

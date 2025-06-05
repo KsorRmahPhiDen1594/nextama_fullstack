@@ -109,7 +109,7 @@ import React, { createContext, useState, useEffect, useContext } from 'react';
             const userData = { email: newUser.email, name: newUser.name, role: newUser.role, id: newUser.id };
             setCurrentUser(userData);
             localStorage.setItem('currentUser', JSON.stringify(userData));
-            toast({ title: "Đăng ký thành công!", description: `Chào mừng ${name} đến với ShopeeCharm!` });
+            toast({ title: "Đăng ký thành công!", description: `Chào mừng ${name} đến với NextAma!` });
             setLoading(false);
             navigate('/');
             resolve(userData);

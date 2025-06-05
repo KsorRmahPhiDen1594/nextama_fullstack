@@ -61,7 +61,7 @@ import React, { useState } from 'react';
 
         clearCart();
         setIsOrderPlaced(true);
-        toast({ title: "Đặt hàng thành công!", description: "Cảm ơn bạn đã mua sắm tại ShopeeCharm." });
+        toast({ title: "Đặt hàng thành công!", description: "Cảm ơn bạn đã mua sắm tại NextAma." });
       };
 
       if (isOrderPlaced) {
@@ -73,7 +73,7 @@ import React, { useState } from 'react';
           >
             <CheckCircle className="mx-auto h-24 w-24 text-green-500 mb-6" />
             <h1 className="text-3xl font-bold mb-4">Đặt hàng thành công!</h1>
-            <p className="text-muted-foreground mb-6">Cảm ơn bạn đã tin tưởng và mua sắm tại ShopeeCharm. Đơn hàng của bạn đang được xử lý.</p>
+            <p className="text-muted-foreground mb-6">Cảm ơn bạn đã tin tưởng và mua sắm tại NextAma. Đơn hàng của bạn đang được xử lý.</p>
             <div className="space-x-4">
               <Button asChild className="gradient-shopee text-primary-foreground">
                 <Link to="/">Tiếp tục mua sắm</Link>

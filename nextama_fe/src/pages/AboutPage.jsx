@@ -26,9 +26,9 @@ import React from 'react';
             className="text-center mb-12 md:mb-16"
           >
             <Building2 className="mx-auto h-16 w-16 md:h-20 md:w-20 text-primary mb-4" />
-            <h1 className="text-4xl md:text-5xl font-bold mb-3 gradient-shopee bg-clip-text text-transparent">Về ShopeeCharm</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-3 gradient-shopee bg-clip-text text-transparent">Về NextAma</h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-              ShopeeCharm là nền tảng thương mại điện tử hàng đầu, mang đến trải nghiệm mua sắm trực tuyến dễ dàng, an toàn và thú vị cho hàng triệu người dùng.
+              NextAma là nền tảng thương mại điện tử hàng đầu, mang đến trải nghiệm mua sắm trực tuyến dễ dàng, an toàn và thú vị cho hàng triệu người dùng.
             </p>
           </motion.section>
 
@@ -45,10 +45,10 @@ import React from 'react';
               </div>
               <div className="text-muted-foreground space-y-4 text-md leading-relaxed">
                 <p>
-                  Tại ShopeeCharm, sứ mệnh của chúng tôi là kết nối người mua và người bán một cách hiệu quả, tạo ra một cộng đồng thương mại điện tử năng động và đáng tin cậy. Chúng tôi không ngừng nỗ lực cải tiến công nghệ, đa dạng hóa sản phẩm và nâng cao chất lượng dịch vụ để đáp ứng mọi nhu cầu mua sắm của bạn.
+                  Tại NextAma, sứ mệnh của chúng tôi là kết nối người mua và người bán một cách hiệu quả, tạo ra một cộng đồng thương mại điện tử năng động và đáng tin cậy. Chúng tôi không ngừng nỗ lực cải tiến công nghệ, đa dạng hóa sản phẩm và nâng cao chất lượng dịch vụ để đáp ứng mọi nhu cầu mua sắm của bạn.
                 </p>
                 <p>
-                  Chúng tôi tin rằng mua sắm trực tuyến không chỉ là giao dịch mà còn là một hành trình khám phá. Vì vậy, ShopeeCharm luôn cố gắng mang đến những chương trình khuyến mãi hấp dẫn, các tính năng tương tác thú vị và một giao diện thân thiện, dễ sử dụng.
+                  Chúng tôi tin rằng mua sắm trực tuyến không chỉ là giao dịch mà còn là một hành trình khám phá. Vì vậy, NextAma luôn cố gắng mang đến những chương trình khuyến mãi hấp dẫn, các tính năng tương tác thú vị và một giao diện thân thiện, dễ sử dụng.
                 </p>
               </div>
             </div>

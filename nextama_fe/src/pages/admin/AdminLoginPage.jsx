@@ -46,10 +46,10 @@ import React, { useState } from 'react';
           >
             <Card className="shadow-2xl bg-slate-800/70 border-primary/30 backdrop-blur-md text-slate-100">
               <CardHeader className="text-center p-6">
-                <Link to="/" className="flex items-center justify-center mb-4 text-3xl font-bold gradient-shopee bg-clip-text text-transparent">
-                  <Building2 className="h-8 w-8 mr-2 text-primary" />
-                  ShopeeCharm Admin
-                </Link>
+            <Link to="/" className="flex justify-center items-center text-3xl font-bold">
+              <img src="/assets/logoama.png" alt="logo" className="h-8 w-8 mr-2" />
+              NextAma
+            </Link>
                 <CardTitle className="text-2xl font-semibold text-slate-50">Đăng Nhập Quản Trị</CardTitle>
                 <CardDescription className="text-slate-400">Truy cập vào bảng điều khiển quản trị viên.</CardDescription>
               </CardHeader>

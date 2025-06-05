@@ -36,18 +36,6 @@ import React, { useState, useEffect } from 'react';
         color: ["Trắng", "Đen", "Xám Tro", "Xanh Navy", "Be Kem"],
         size: ["S", "M", "L", "XL", "XXL"],
       },
-      seller: { 
-        name: "ShopeeCharm Official Store", 
-        avatar_placeholder: "Logo ShopeeCharm Official Store",
-        rating: "4.9/5.0",
-        reviews: "35.6k", 
-        products: 1500, 
-        responseRate: "98%", 
-        responseTime: "Trong vài phút",
-        joined: "3 năm trước",
-        isOfficial: true,
-        location: "TP. Hồ Chí Minh"
-      },
       stock: 865,
       shippingInfo: "Miễn phí vận chuyển cho đơn hàng từ 150.000₫",
       returnPolicy: "Đổi trả trong 7 ngày nếu có lỗi từ nhà sản xuất hoặc không vừa ý (có điều kiện).",
@@ -268,36 +256,11 @@ import React, { useState, useEffect } from 'react';
                 </div>
                 
                 <div className="flex items-center space-x-4 text-sm text-muted-foreground pt-2">
-                    <div className="flex items-center"><ShieldCheck className="h-4 w-4 mr-1.5 text-green-500"/>ShopeeCharm Đảm Bảo</div>
+                    <div className="flex items-center"><ShieldCheck className="h-4 w-4 mr-1.5 text-green-500"/>NextAma Đảm Bảo</div>
                     <div className="flex items-center"><Truck className="h-4 w-4 mr-1.5 text-blue-500"/>Trả hàng miễn phí 7 ngày</div>
                 </div>
               </motion.div>
             </CardContent>
-          </Card>
-
-          {/* Seller Info */}
-          <Card className="mt-6 md:mt-8 shadow-md">
-            <CardHeader className="p-4 md:p-5">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
-                 <img  className="h-16 w-16 md:h-20 md:w-20 rounded-full border-2 border-primary p-0.5" alt={`${product.seller.name} logo`} src="https://images.unsplash.com/photo-1570260842077-f380fa64e915" />
-                <div className="flex-grow">
-                  <div className="flex items-center space-x-2 mb-0.5">
-                    <CardTitle className="text-lg md:text-xl">{product.seller.name}</CardTitle>
-                    {product.seller.isOfficial && <Badge className="bg-primary/80 text-primary-foreground text-xs px-1.5 py-0.5">Official</Badge>}
-                  </div>
-                  <p className="text-xs md:text-sm text-muted-foreground">Online {product.seller.responseTime.toLowerCase()} | {product.seller.location}</p>
-                  <div className="flex space-x-3 mt-1.5 text-xs md:text-sm">
-                    <span><span className="font-semibold">{product.seller.rating}</span> Đánh giá</span>
-                    <span><span className="font-semibold">{product.seller.products.toLocaleString()}</span> Sản phẩm</span>
-                    <span><span className="font-semibold">{product.seller.responseRate}</span> Phản hồi Chat</span>
-                  </div>
-                </div>
-                <div className="flex space-x-2 w-full sm:w-auto">
-                  <Button variant="outline" size="sm" className="flex-1 sm:flex-none text-xs md:text-sm"><MessageSquare className="mr-1.5 h-4 w-4"/> Chat Ngay</Button>
-                  <Button variant="outline" size="sm" className="flex-1 sm:flex-none text-xs md:text-sm border-primary text-primary hover:bg-primary/10">Xem Shop</Button>
-                </div>
-              </div>
-            </CardHeader>
           </Card>
           
           {/* Product Details & Reviews Tabs */}

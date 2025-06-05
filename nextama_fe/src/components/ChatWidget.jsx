@@ -8,7 +8,7 @@ import React, { useState } from 'react';
     const ChatWidget = () => {
       const [isOpen, setIsOpen] = useState(false);
       const [messages, setMessages] = useState([
-        { id: 1, sender: 'bot', text: 'Chào bạn! ShopeeCharm có thể giúp gì cho bạn?' }
+        { id: 1, sender: 'bot', text: 'Chào bạn! NextAma có thể giúp gì cho bạn?' }
       ]);
       const [inputValue, setInputValue] = useState('');
 
